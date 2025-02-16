@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Wedding</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Full-screen video background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.7; /* Transparent effect */
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 60vh;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Styling images */
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            object-fit: cover;
+            animation: fade 2s ease-in-out;
+        }
+
+        /* Fade effect */
+        @keyframes fade {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+
+        /* Wedding title */
+        .wedding-title {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        /* Fade-in animation for title */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background video -->
+    <video class="video-background" autoplay loop muted>
+        <source src="wedding-bg.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <!-- Wedding Title -->
+    <div class="wedding-title">Happy Wedding Day!</div>
+
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+        <img class="slide" src="1.jpeg" alt="Wedding Photo 1">
+        <img class="slide" src="2.jpeg" alt="Wedding Photo 2">
+        <img class="slide" src="3.jpeg" alt="Wedding Photo 3">
+        <img class="slide" src="4.jpeg" alt="Wedding Photo 4">
+        <img class="slide" src="5.jpeg" alt="Wedding Photo 5">
+        <img class="slide" src="6.jpeg" alt="Wedding Photo 6">
+        <img class="slide" src="7.jpeg" alt="Wedding Photo 7">
+        <img class="slide" src="8.jpeg" alt="Wedding Photo 8">
+        <img class="slide" src="9.jpeg" alt="Wedding Photo 9">
+        <img class="slide" src="10.jpeg" alt="Wedding Photo 10">
+        <img class="slide" src="11.jpeg" alt="Wedding Photo 11">
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+        showSlides();
+    </script>
+
+</body>
+</html>
